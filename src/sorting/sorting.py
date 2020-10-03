@@ -4,6 +4,18 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
+    for e in range(len(merged_arr)):
+        if a >= len(arrA):
+            merged_arr[e] = arrB[b]
+            b += 1
+        elif b >= len(arrB):
+            merged_arr[e] = arrA[a]
+            a += 1
+        elif arrA[a] < arrB[b]:
+            merged_arr[e] = arrA[a]
+        else:
+            merged_arr[e] = arrB[b]
+            b += 1
 
 
     return merged_arr
@@ -11,6 +23,11 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     # Your code here
+    if len(arr) > 1:
+        left = merge_sort(arr[0:len(arr) //2])
+        right = merge_sort(arr[len(arr) // 2:])
+        arr = merge(left, right)
+    return arr
 
 
     return arr
